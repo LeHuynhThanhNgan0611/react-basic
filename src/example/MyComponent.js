@@ -12,6 +12,11 @@ class MyComponent extends React.Component {
             name: event.target.value
         })
     }
+
+    handleClickButton = () => {
+        console.log("hit a button");
+        alert('Click me')
+    }
     /*Comment
     JSX => return block
     fragment
@@ -21,11 +26,15 @@ class MyComponent extends React.Component {
         return (
             <>
                 <div className="first">
-                    <input value={this.state.name} type="text" onChange={(event) => this.handleOnChangeName(event)} />
+                    <input value={this.state.name} type="text"
+                        onChange={(event) => this.handleOnChangeName(event)} />
                     My name is {this.state.name}
                 </div>
                 <div className="second">
                     Youtube chanel : {this.state.channel}
+                </div>
+                <div className="third">
+                    <button onClick={() => this.handleClickButton()}>Click me</button>
                 </div>
             </>
         )
