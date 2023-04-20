@@ -3,18 +3,21 @@ class MyComponent extends React.Component {
 
     // key: value
     state = {
-        name: "Lê Huỳnh Thanh Ngân",
-        channel: "Hoi Dan IT"
+        name: "",
+        channel: "Hỏi Dân IT"
     }
 
     handleOnChangeName = (event) => {
+        console.log(event.target.value, 'event target: ', event.target, 'event object', event);
+        // this.state.name = event.target.value // bad code
+
+        // merge
         this.setState({
-            name: event.target.value
-        })
+            name: event.target.value,
+        }) // cú pháp thay đổi state
     }
 
     handleClickButton = () => {
-        console.log("hit a button");
         alert('Click me')
     }
     /*Comment
@@ -22,7 +25,9 @@ class MyComponent extends React.Component {
     fragment
     state: dữ liệu có thể thay đổi, ngay lập tức cập nhật dữ liệu ngay lập tức không cần refersh lại
     */
+    // re-render:
     render() {
+        console.log('>>> call render: ', this.state);
         return (
             <>
                 <div className="first">
