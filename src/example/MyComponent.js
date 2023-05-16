@@ -39,9 +39,10 @@ class MyComponent extends React.Component {
                     <input type="submit"
                         onClick={(event) => this.handleSubmit(event)} />
                 </form>
-                <ChildComponent name={'first child'}></ChildComponent>
-                <ChildComponent name={'second child'}></ChildComponent>
-                <ChildComponent name={'third child'}></ChildComponent>
+                <ChildComponent 
+                name={'Lê Huỳnh Thanh Ngân'}
+                age={21}
+                ></ChildComponent>
             </>
         )
     }
