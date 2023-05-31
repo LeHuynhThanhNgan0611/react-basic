@@ -1,31 +1,50 @@
 import React from "react";
 class AddComponent extends React.Component{
+
     state={
-        titleJob: '',
+        title: '',
         salary: '',
     }
-    handleChangetitleJob = (event) => {
+
+    handleChangetitle = (event) => {
         this.setState({
-            titleJob: event.target.value
+            title: event.target.value
         })
     }
+
     handleChangesalary = (event) => {
         this.setState({
             salary: event.target.value
         })
     }
+
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log('>>> check data input: ', this.state);
+        if (!this.state.title || !this.state.salary) {
+            alert('Missing required params')
+            return;
+        }
+        console.log('>>> check data input: ', this.state)
+        this.props.addNewJob({
+            id: Math.floor(Math.random() * 1001),
+            title: this.state.title,
+            salary: this.state.salary
+        })
+
+        this.setState({
+            title: '',
+            salary: ''
+        })
     }
+    
     render(){
         return(
             <form>
                 <label for="fname">Job's title </label><br />
-                <input type="text" value={this.state.titleJob}
-                onChange={(event) => this.handleChangetitleJob(event)} />
+                <input type="text" value={this.state.title}
+                onChange={(event) => this.handleChangetitle(event)} />
                 <br />
-                <label for="lname">Salary:</label><br />
+                <label for="lname">Salary</label><br />
                 <input type="text" value={this.state.salary}
                 onChange={(event) => this.handleChangesalary(event)} />
                 <br /><br />
@@ -34,7 +53,6 @@ class AddComponent extends React.Component{
             </form>
         )
     }
-
 }
 
 export default AddComponent;
