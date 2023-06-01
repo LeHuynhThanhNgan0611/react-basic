@@ -9,6 +9,12 @@ import React from "react";
             showJobs: !this.state.showJobs
         })
     }
+
+    handleOnclickDelete = (job) => {
+        console.log('>>> handleOnclickDelete: ', job)
+        this.props.deleteAJob(job)
+    }
+
     render() {
         let { arrJobs } = this.props;
         let { showJobs } = this.state;
@@ -27,7 +33,8 @@ import React from "react";
                         arrJobs.map((item, index) => {
                             return (
                                 <div key={item.id}>
-                                    {item.title} - {item.salary}
+                                    {item.title} - {item.salary} $
+                                    <></> <span onClick={() => this.handleOnclickDelete(item)}>x</span>
                                 </div>
                             )
                         })
@@ -42,25 +49,4 @@ import React from "react";
         )
     }
   }
-// const ChildComponent =(props)=>{
-    // let {arrJobs}=props;
-    // return(
-        // <>
-       // {/* <div className="job-lists"> */}
-         //   {/* { */}
-                // arrJobs.map((item, index)=>{
-                    // if(item.salary >= 500)
-                    // {
-                        // return(
-                            // <div key={item.id}>
-                        //        {/* {item.title} - {item.salary} $ */}
-                        //    {/* </div> */}
-                        // )
-                    // }
-                // })
-            // }
-     //   {/* </div> */}
-     //   {/* </> */}
-    // )
-// }
 export default ChildComponent;

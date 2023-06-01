@@ -36,7 +36,7 @@ class AddComponent extends React.Component{
             salary: ''
         })
     }
-    
+
     render(){
         return(
             <form>
