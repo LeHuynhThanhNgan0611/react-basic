@@ -31,6 +31,13 @@ class MyComponent extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState){
+        console.log('>>> run did update:', 'prev state: ',prevState, 'pre props: ',prevProps);   
+    } // xử lý dữ liệu so sánh hiện tại và tương lai (khi thao tác giữa con và cha)
+
+    componentDidMount(){
+        console.log('>>> run component did mount');
+    } // gọi api
 
     render() {
         return (
