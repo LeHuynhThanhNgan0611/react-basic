@@ -6,7 +6,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from '../example/Home';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 /** 2 component: class component / function component (function, arrow)
  * 
  * JSX: function or hàm của js
@@ -16,22 +21,25 @@ function App() {
   // const App = () => {
   return (
     <BrowserRouter>
-      <div className="App">
+    <div className="App">
       <header className="App-header">
-        <Nav/>
+        <Nav />
         <img src={logo} className="App-logo" alt="logo" />
         <Switch>
           <Route path="/" exact>
-            <Home/>
+            <Home />
           </Route>
           <Route path="/todo">
-            <ListTodo/>
+            <ListTodo />
           </Route>
           <Route path="/about">
-            <MyComponent/>
+            <MyComponent />
           </Route>
         </Switch>
+
       </header>
+
+
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -42,12 +50,9 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
       />
-        {/* Same as */}
-      <ToastContainer />
-      </div>
-    </BrowserRouter>
+    </div>
+  </BrowserRouter>
   );
 }
 
